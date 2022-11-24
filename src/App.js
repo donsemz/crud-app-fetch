@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import EmployeeListing from "./components/EmployeeListing";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./css/App.css";
+import EmployeeAdd from "./components/EmployeeAdd";
+import EmployeeEdit from "./components/EmployeeEdit";
+import EmployeeDetails from "./components/EmployeeDetails";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="center">
+      <h1>Fetch API CRUD App</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<EmployeeListing />}></Route>
+          <Route path="/employee/add" element={<EmployeeAdd />}></Route>
+          <Route path="/employee/detail/:empid" element={<EmployeeDetails/>}></Route>
+          <Route path="/employee/edit/:empid" element={<EmployeeEdit />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
